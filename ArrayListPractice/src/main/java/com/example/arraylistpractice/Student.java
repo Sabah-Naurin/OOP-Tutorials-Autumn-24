@@ -5,6 +5,7 @@ public class Student {
     private String major;
     private int id;
 
+    // We created Two Constructors. Known as "Constructor Overloading"
     public Student(String name, String major, int id) {
         this.name = name;
         this.major = major;
