@@ -1,3 +1,4 @@
+// Example of Generic Class
 public class Box<T> {
     private T item;
 
