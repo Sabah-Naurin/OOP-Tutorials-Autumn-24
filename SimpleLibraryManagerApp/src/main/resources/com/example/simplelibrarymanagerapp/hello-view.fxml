@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.simplelibrarymanagerapp.HelloController">
+  <tabs>
+    <Tab text="Add Books">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <GridPane layoutX="84.0" layoutY="55.0" prefHeight="162.0" prefWidth="386.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.39996337890625" minWidth="10.0" prefWidth="101.0" />
+                      <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="298.60003662109375" minWidth="10.0" prefWidth="285.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="37.60001220703125" minHeight="10.0" prefHeight="37.60001220703125" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="31.199999999999996" minHeight="10.0" prefHeight="31.199999999999996" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="32.80000610351563" minHeight="10.0" prefHeight="31.999987792968753" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="31.199987792968756" minHeight="10.0" prefHeight="29.59998168945313" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="24.800024414062506" minHeight="10.0" prefHeight="23.20001831054688" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Book ID" />
+                        <Label text="Book Name" GridPane.rowIndex="1" />
+                        <Label text="Book Genre" GridPane.rowIndex="2" />
+                        <Label text="Book Price" GridPane.rowIndex="3" />
+                        <Label text="Book Condition" GridPane.rowIndex="4" />
+                        <TextField fx:id="idField" GridPane.columnIndex="1" />
+                        <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="genreBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <children>
+                              <RadioButton mnemonicParsing="false" text="New">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="BookConditionGroup" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" text="Used" toggleGroup="$BookConditionGroup" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+                  <Button layoutX="252.0" layoutY="242.0" mnemonicParsing="false" onAction="#onAddBookClick" text="Add New Book" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Search Books">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="48.0" layoutY="56.0" text="Search by Genre" />
+                  <ComboBox fx:id="searchGenreBox" layoutX="149.0" layoutY="52.0" prefWidth="150.0" />
+                  <Label layoutX="48.0" layoutY="102.0" text="Minimum Price" />
+                  <Label layoutX="256.0" layoutY="102.0" text="Maximum Price" />
+                  <TextField fx:id="minPriceField" layoutX="150.0" layoutY="98.0" prefHeight="26.0" prefWidth="82.0" />
+                  <TextField fx:id="maxPriceField" layoutX="359.0" layoutY="98.0" prefHeight="26.0" prefWidth="85.0" />
+                  <Button layoutX="470.0" layoutY="99.0" mnemonicParsing="false" onAction="#onSearchButtonClick" text="Search" />
+                  <TableView fx:id="bookTable" layoutX="50.0" layoutY="143.0" prefHeight="200.0" prefWidth="478.0">
+                    <columns>
+                      <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
+                      <TableColumn fx:id="nameCol" prefWidth="118.4000244140625" text="Book Name" />
+                        <TableColumn fx:id="genreCol" prefWidth="84.79998779296875" text="Genre" />
+                        <TableColumn fx:id="priceCol" prefWidth="80.79998779296875" text="Price" />
+                        <TableColumn fx:id="conditionCol" prefWidth="120.00006103515625" text="Condition" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
